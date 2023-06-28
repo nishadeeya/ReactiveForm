@@ -1,0 +1,74 @@
+<ng-container [formGroup]="group">
+  <label class="pt-1 pb-1" *ngIf="label">{{label}}</label><sup *ngIf="required" class="required"> <i
+      class="fa-solid fa-star-of-life"></i></sup>
+
+  <ng-container *ngIf="isEdit">
+    <ng-container *ngIf="type === 'number'">
+      <input type="number" class="{{class}}" [id]="name" [name]="name" [formControlName]="name" class=" form-control"
+        [placeholder]="placeholder" [maxlength]="maxLength" [readonly]="isReadOnly " (blur)="onBlur($event)"
+        (focus)="onFocus($event)" (input)="onValueChange($event)" [ngClass]="{
+        'is-invalid':
+          formField &&
+          formField.errors &&
+          (isFormSubmitted || (!formField.pristine && isErrorOnChange))
+      }" />
+    </ng-container>
+
+    <ng-container *ngIf="type === 'email'">
+      <input type="email" class="{{class}}" [id]="name" [name]="name" [formControlName]="name" class=" form-control"
+        [placeholder]="placeholder" [maxlength]="maxLength" [readonly]="isReadOnly " (blur)="onBlur($event)"
+        (focus)="onFocus($event)" (input)="onValueChange($event)" [ngClass]="{
+      'is-invalid':
+        formField &&
+        formField.errors &&
+        (isFormSubmitted || (!formField.pristine && isErrorOnChange))
+    }" />
+    </ng-container>
+
+    <ng-container *ngIf="type === 'password'">
+      <input type="password" class="{{class}}" [id]="name" [name]="name" [formControlName]="name" class=" form-control"
+        [placeholder]="placeholder" [maxlength]="maxLength" [readonly]="isReadOnly " (blur)="onBlur($event)"
+        (focus)="onFocus($event)" (input)="onValueChange($event)" [ngClass]="{
+        'error-outline':
+          formField &&
+          formField.errors &&
+          (isFormSubmitted || (!formField.pristine && isErrorOnChange))
+      }" />
+    </ng-container>
+    
+    <ng-container *ngIf="type === 'text'">
+      <input type="text" [id]="name" [name]="name" [formControlName]="name" class=" form-control" class="{{class}}"
+        [placeholder]="placeholder" [maxlength]="maxLength" [readonly]="isReadOnly " (blur)="onBlur($event)"
+        (focus)="onFocus($event)" (input)="onValueChange($event)" [ngClass]="{
+        'error-outline':
+          formField &&
+          formField.errors &&
+          (isFormSubmitted || (!formField.pristine && isErrorOnChange))
+      }" />
+    </ng-container>
+  </ng-container>
+
+  <div *ngIf="
+      formField &&
+      formField.errors &&
+      (isFormSubmitted || (formField.touched))
+    " [ngClass]="{
+      'error-message pt-1':
+        formField &&
+        formField.errors
+    }">
+    {{ formField ? formField.errors["message"] : "" }}
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isEdit">
+  <ng-container *ngIf="type === 'checkbox'">
+    <input type="checkbox" class="{{class}}" [id]="name" [name]="name" [formControlName]="name"
+      [placeholder]="placeholder" [maxlength]="maxLength" [readonly]="isReadOnly " (blur)="onBlur($event)"
+      (focus)="onFocus($event)" (input)="onValueChange($event)" [ngClass]="{
+    'is-invalid':
+      formField &&
+      formField.errors &&
+      (isFormSubmitted || (!formField.pristine && isErrorOnChange))
+  }" />
+  </ng-container>

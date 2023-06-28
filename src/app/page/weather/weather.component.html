@@ -1,0 +1,125 @@
+<div class="container">
+  <h2>Person Details</h2>
+  <form [formGroup]="personForm">
+    <div class="row mt-3">
+      <div class="col-1">
+        <label>Person</label>
+      </div>
+      <div class="col-3">
+        <input type="text" formControlName="person" class="form-control">
+        <div *ngIf="personForm.controls['person'].invalid && personForm.controls['person'].touched"
+          class="error-messages">
+          <ng-container *ngIf="personForm.controls['person'].errors?.['required']">
+            Name is required.
+          </ng-container>
+          <ng-container *ngIf="personForm.controls['person'].errors?.['pattern']">
+            Only alphabets and spaces are allowed.
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div formArrayName="items">
+      <div>
+        <div class="row mt-2">
+          <div class="col-1">
+            <label></label>
+          </div>
+          <div class="col-3">
+            <label>Item</label>
+          </div>
+          <div class="col-3 ">
+            <label>Price</label>
+          </div>
+          <div class="col-3 ">
+            <label>Quantity</label>
+          </div>
+          <div class="col-3">
+          </div>
+        </div>
+        <div class="row mt-2" *ngFor="let itemDetails of itemcontrols; let i = index" [formGroupName]="i">
+          <div class="col-1">
+            <label>Item {{ i + 1 }}:</label>
+          </div>
+          <div class="col-3">
+            <input type="text" formControlName="item" class="form-control">
+            <div
+              *ngIf="personForm.get('items').get(i.toString()).get('item').invalid && personForm.get('items').get(i.toString()).get('item').touched"
+              class="error-messages">
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('item').hasError('required')">
+                Item is required.
+              </ng-container>
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('item').hasError('pattern')">
+                Only alphabets and spaces are allowed.
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-3 ">
+            <input type="text" formControlName="price" class="form-control">
+            <div
+              *ngIf="personForm.get('items').get(i.toString()).get('price').invalid && personForm.get('items').get(i.toString()).get('price').touched"
+              class="error-messages">
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('price').hasError('required')">
+                Price is required.
+              </ng-container>
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('price').hasError('pattern')">
+                Price not valid (eg : 109.55).
+              </ng-container>
+            </div>
+
+          </div>
+          <div class="col-3 ">
+            <input type="text" formControlName="quantity" class="form-control">
+            <div
+              *ngIf="personForm.get('items').get(i.toString()).get('quantity').invalid && personForm.get('items').get(i.toString()).get('quantity').touched"
+              class="error-messages">
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('quantity').hasError('required')">
+                Quantity is required.
+              </ng-container>
+              <ng-container *ngIf="personForm.get('items').get(i.toString()).get('quantity').hasError('pattern')">
+                Quantity should be whole number.
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-2 ">
+            <button type="button" class="btn" (click)="removeItem(i)"
+              *ngIf="personForm.controls['items'].value.length>1"> Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-2">
+        <button type="button" (click)="addItem()" class="btn">Add Item</button>
+      </div>
+      <div class="col-2">
+        <button type="submit" class="btn" *ngIf="!editBtn" (click)="submitItemForm()" [disabled]="!personForm.valid">{{
+          buttonText }}</button>
+        <button type="button" class="btn" *ngIf="editBtn" (click)="submitItemForm()"
+          [disabled]="!personForm.valid || !personForm.valid">{{ buttonText }}</button>
+      </div>
+    </div>
+  </form>
+  <table class="mt-5 mb-5 " *ngIf="showTable">
+    <tr>
+      <th>S.NO</th>
+      <th>Person Name</th>
+      <th>Items</th>
+      <th>Edit</th>
+    </tr>
+    <tr>
+      <td>{{dataSource.items.length > 0 ? 1 : ''}}</td>
+      <td>{{personName}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let data of dataSource.items;let j = index">
+            item{{j + 1}} - Name : {{data.item}}, Price : {{data.price}}, quantity : {{data.quantity}}
+          </li>
+        </ul>
+      </td>
+      <td><span class="cursor" (click)="editItem()"> <mat-icon>edit</mat-icon></span></td>
+
+    </tr>
+  </table>
+
+</div>

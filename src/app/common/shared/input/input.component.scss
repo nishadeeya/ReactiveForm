@@ -1,0 +1,158 @@
+label {
+    text-align: left;
+    margin-left: 0.2rem;
+    font: normal normal 600 0.9rem Jost !important;
+    letter-spacing: 0.2px;
+    color: #8C8C8C;
+    opacity: 1;
+  }
+  
+  .coutrySelect {
+    box-shadow: 0px 3px 13px #45BF41B5 !important;
+    border-radius: 6px;
+    border: 1px solid #45BF41 !important;
+  }
+  
+  
+  .form-control {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000008;
+    border: 1px solid #77777778;
+    border-radius: 6px;
+    opacity: 1;
+    // margin-top: 0.6rem;
+    text-align: left;
+    font: normal normal normal 0.9rem/19px Helvetica;
+    letter-spacing: 0px;
+    color: #383535b3;
+    padding-left: 9px;
+    .form-control .is-invalid {
+      border: 1px solid #dc3545 !important;
+      background-image: none !important;
+    }
+  
+    .input-group {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px #00000008;
+      border: 1px solid #77777778;
+      border-radius: 8px;
+      opacity: 1;
+      margin-top: 0.6rem;
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+    }
+  }
+  
+  .form-control[readonly] {
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000008;
+    border-radius: 8px;
+    // margin-top: 0.6rem;
+    text-align: left;
+    font: normal normal 600 0.9rem Jost;
+    color: rgba(87, 87, 87, 0.9);
+    letter-spacing: 0px;
+  }
+  
+  .userInput {
+    width: 4rem;
+    
+  }
+  
+  ::placeholder{
+    font: normal normal 0.8rem Jost !important;
+  }
+  
+  .check {
+    margin-top: 1rem !important;
+    -webkit-box-shadow: 0px 0px 0px 1px#45BF41;
+    -moz-box-shadow: 0px 0px 0px 1px#45BF41;
+    box-shadow: 0px 0px 0px 1px#45BF41;
+  }
+  
+  .checks {
+    margin-top: 0.3rem !important;
+    -webkit-box-shadow: 0px 0px 0px 1px#45BF41;
+    -moz-box-shadow: 0px 0px 0px 1px#45BF41;
+    box-shadow: 0px 0px 0px 1px#45BF41;
+  }
+  
+  input[type="checkbox"] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    outline: none;
+    content: none;
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  
+  .text {
+    // border: none !important;
+    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #f4f6fd !important;
+    height: 35px;
+    text-align: left;
+    font: normal normal 600 0.9rem Jost;
+    letter-spacing: 0px;
+    color: #7a7474;
+    opacity: 1;
+    padding: 10px !important;
+  }
+  
+  .projectInput {
+    margin-top: 0.6rem;
+  }
+  
+  .profileInput {
+    text-align: left;
+    font: normal normal bold 13px/19px Helvetica;
+    letter-spacing: 0px;
+    box-shadow: 0px 3px 6px #0000000F;
+    color: #7D7D7DB3;
+    opacity: 1;
+  }
+  
+  .profileInput-sm {
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+  }
+  
+  .editprofileInput .is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+  }
+  
+  .editprofileInput-sm {
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+  }
+  
+  .editprofileInput {
+    text-align: left;
+    border: 1px solid #CED4DA;
+    font: normal normal normal 13px/19px Helvetica;
+    letter-spacing: 0px;
+    box-shadow: 0px 3px 6px #0000000F;
+    color: #7D7D7DB3;
+    opacity: 1;
+  }
+  
+  input[readonly] {
+    cursor: not-allowed;
+  }
+  
+  .required {
+    font-size: 0.44rem;
+    color: #102613 !important;
+    margin-left: 0.1rem;
+  }
+  
+  .projectInput {
+    margin-top: 0.6rem;
+  }
+  ::ng-deep .dateInput .form-control[readonly] {
+    background-color: #f4f6fd !important;
+   
+  }
+  
